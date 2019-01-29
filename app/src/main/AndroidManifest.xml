@@ -20,8 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider android:name="Person"
-            android:authorities="com.example.quiz.Person"/>
+
     </application>
 
 </manifest>
