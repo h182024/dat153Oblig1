@@ -1,6 +1,8 @@
 package com.example.quiz;
 
+import android.Manifest;
 import android.content.Intent;
+import android.graphics.Camera;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 public class Add extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private int PICK_IMAGE_REQUEST = 1;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -30,7 +33,7 @@ public class Add extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                
+                dispatchTakePictureIntent();
                 ImageView previewImg = (ImageView) findViewById(R.id.PreviewImageView);
 
             }
@@ -40,7 +43,14 @@ public class Add extends AppCompatActivity {
         fromGalleryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent getGallery = new Intent();
+
+                Intent intent = new Intent();
+                // Show only images, no videos or anything else
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                // Always show the chooser (if there are multiple options available)
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+                ImageView previewImg = (ImageView) findViewById(R.id.PreviewImageView);
             }
         });
 
@@ -48,6 +58,9 @@ public class Add extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+              
+
 
             }
         });
