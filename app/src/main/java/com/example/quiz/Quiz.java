@@ -21,13 +21,16 @@ public class Quiz extends AppCompatActivity {
         return j / i;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         //the amount of right answers and answers themself
 
-
+        int amount;
+        int right;
 
 
 
@@ -37,8 +40,7 @@ public class Quiz extends AppCompatActivity {
         NextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int amount;
-                int right;
+
 
                 EditText name = (EditText) findViewById(R.id.NameEditText);
                 if(compare(name, )){
@@ -54,9 +56,10 @@ public class Quiz extends AppCompatActivity {
         QuitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int score = scoreKeeping(amount, right)
+                int score = scoreKeeping(amount, right);
 
                 Intent startIntent = new Intent(getApplicationContext(), Result.class);
+                startIntent.putExtra("result", score + "");
                 startActivity(startIntent);
 
 
