@@ -23,31 +23,34 @@ public class Quiz extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         //the amount of right answers and answers themself
 
-         int score;
+         private int score;
+         private int amount;
+         private int right;
 
 
         Button NextBtn = (Button)findViewById(R.id.NextBtn);
         NextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               public int right;
-               public int amount;
+
                 EditText name = (EditText) findViewById(R.id.NameEditText);
                 if(compare(name, )){
                     right++;
-                }
-                amount++;
+                    amount++:
+                } else {
+                amount++;}
                 Intent startIntent2 = new Intent(getApplicationContext(), Quiz.class);
                 startActivity(startIntent2);
             }
         });
+
         Button QuitBtn = (Button)findViewById(R.id.QuitBtn);
         QuitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), Result.class);
                 startActivity(startIntent);
-                score = amount/right;
+
             }
         });
 
