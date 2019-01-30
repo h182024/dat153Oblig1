@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Add extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class Add extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,8 @@ public class Add extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               
+                
+                ImageView previewImg = (ImageView) findViewById(R.id.PreviewImageView);
 
             }
         });
